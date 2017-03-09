@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>私筹邦</title>
+<link rel="stylesheet"  href="css/style.css" type="text/css" />
+<script type="text/javascript" src="js/jquery.js"/></script>
+<!--banner图js-->
+<script type="text/javascript">
+function banner(){	
+	var bn_id = 0;
+	var bn_id2= 1;
+	var speed33=5000;
+	var qhjg = 1;
+    var MyMar33;
+	$("#banner .d1").hide();
+	$("#banner .d1").eq(0).fadeIn("slow");
+	if($("#banner .d1").length>1)
+	{
+		$("#banner_id li").eq(0).addClass("nuw");
+		function Marquee33(){
+			bn_id2 = bn_id+1;
+			if(bn_id2>$("#banner .d1").length-1)
+			{
+				bn_id2 = 0;
+			}
+			$("#banner .d1").eq(bn_id).css("z-index","2");
+			$("#banner .d1").eq(bn_id2).css("z-index","1");
+			$("#banner .d1").eq(bn_id2).show();
+			$("#banner .d1").eq(bn_id).fadeOut("slow");
+			$("#banner_id li").removeClass("nuw");
+			$("#banner_id li").eq(bn_id2).addClass("nuw");
+			bn_id=bn_id2;
+		};
+	
+		MyMar33=setInterval(Marquee33,speed33);
+		
+		$("#banner_id li").click(function(){
+			var bn_id3 = $("#banner_id li").index(this);
+			if(bn_id3!=bn_id&&qhjg==1)
+			{
+				qhjg = 0;
+				$("#banner .d1").eq(bn_id).css("z-index","2");
+				$("#banner .d1").eq(bn_id3).css("z-index","1");
+				$("#banner .d1").eq(bn_id3).show();
+				$("#banner .d1").eq(bn_id).fadeOut("slow",function(){qhjg = 1;});
+				$("#banner_id li").removeClass("nuw");
+				$("#banner_id li").eq(bn_id3).addClass("nuw");
+				bn_id=bn_id3;
+			}
+		})
+		$("#banner_id").hover(
+			function(){
+				clearInterval(MyMar33);
+			}
+			,
+			function(){
+				MyMar33=setInterval(Marquee33,speed33);
+			}
+		)	
+	}
+	else
+	{
+		$("#banner_id").hide();
+	}
+}
+</script>
+
+<!--导航js-->
+<script type="text/javascript">
+$(document).ready(function($){
+	$('.nav_l li').mouseover(function(){
+		 $(this).addClass('current');
+		 $(this).siblings('.nav_l li').removeClass('current');
+		 $(this).children('.nav_box').show();
+		 $(this).siblings('.nav_l li').children('.nav_box').hide();
+		});
+    $('.nav_l li .nav_box li').mouseover(function(){
+		 $(this).addClass('curr');
+		 $(this).siblings('.nav_l li .nav_box li').removeClass('curr')
+		 $(this).removeClass('current');
+		})
+	
+});
+</script>
+
+</head>
+
+<body>
+	<div class="wrap">
+        <!--top开始-->
+        <div class="top">
+        	<div class="top_left">
+            	<ul>
+                	<li><img src="images/logo.png" width="181" height="58" /></li>
+                    <li class="line"><img src="images/logo_r.png" /></li>
+                    <li class="letter">财富纽带&nbsp; &nbsp;丝绸之路</li>
+                </ul>
+            </div>
+            <div class="top_right">
+            	<dl>
+                	<dt><a href="#"><img src="images/xinlang.png" /></a></dt>
+                    <dd>新浪微博</dd>
+                </dl>
+                <dl>
+                	<dt class="weixin"><a href="#"><img src="images/weixin.png" /></a></dt>
+                    <dd>微信公众号</dd>
+                </dl>
+            </div>
+        </div>
+        <!--top结束-->
+        <!--nav开始-->
+        <div class="nav">
+            <div class="nav_all">
+                <div class="nav_l">
+                    <ul>
+                        <li class="current">
+                            <a href="index.html">首页</a>
+                        </li>
+                        <li><a href="information.html">资讯</a>
+                            <div class="nav_box">
+                                <ul>
+                                    <li class="curr"><a href="companyAnnounce.html">公司公告</a></li>
+                                    <li><a href="#">行业新闻</a></li>
+                                    <li><a href="#">活动专题</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="sc-project.html">私筹项目</a></li>
+                        <li><a href="join-condition.html">代理加盟</a>
+                            <div class="nav_box">
+                                <ul>
+                                    <li class="curr"><a href="join-condition.html">加盟条件</a></li>
+                                    <li><a href="join-apply.html">加盟申请</a></li>
+                                    <li><a href="join-log%20in.html">代理商登录</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="new-index.html">新手索引</a></li>
+                    </ul>
+                </div>
+                <div class="nav_r">
+                    <ul>
+                        <li>
+                            <a href="sign-in.html"><input class="zhuce" type="button" value="注册" /></a>
+                        </li>
+                        <li>
+                            <a href="log-in.html"><input class="denglu" type="button" value="登录" /></a>
+                        </li>
+                        <li>
+                            <p><img src="images/user_icon.png" />用户中心</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--nav结束-->
+        <!--banner开始-->
+    	<div class="banner" id="banner" >
+            <a href="#" class="d1" style="background:url(images/index/banner.jpg) center no-repeat;"></a>
+            <a href="#" class="d1" style="background:url(images/index/banner.jpg) center no-repeat;"></a>
+            <a href="#" class="d1" style="background:url(images/index/banner.jpg) center no-repeat;"></a>
+            <a href="#" class="d1" style="background:url(images/index/banner.jpg) center no-repeat;"></a>
+            <a href="#" class="d1" style="background:url(images/index/banner.jpg) center no-repeat;"></a>
+            <div class="d2" id="banner_id">
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+        <script type="text/javascript">banner()</script>
+        <!--banner结束-->
+        <div class="jiameng_login" style="background:url(images/dailijiameng/login_l_bg.jpg) no-repeat left top; padding-bottom:0;">
+        	<div class="login_l apply">
+            	<dl>
+                	<dt><img src="images/dailijiameng/login_l2.png" width="79" height="79"  /></dt>
+                    <dd>申请加盟</dd>
+                </dl>
+            </div>
+            <div class="login_r">
+            	<p><span>真实姓名：</span><input type="text" value="" /></p>
+                <p><span>身份证号：</span><input type="text" value="" /></p>
+                <p><span>联系电话：</span><input type="text" value="" /></p>
+                <p><span>通讯地址：</span><input type="text" value="" /></p>
+                <div class="btn"><a href="#"><input type="button" value="提交申请" /></a></div>
+            </div>
+        </div>
+        
+        <div class="footer">
+        	<div class="foot_all">
+                <div class="footer_top">
+                    <p class="footer_l"><img src="images/index/tele.png" />客服热线：400-800-965（工作时间 09:00-18:00）</p>
+                    <p class="footer_r"><a href="#">关于我们</a> | <a href="#">帮助中心</a> | <a href="#"> 代理加盟</a> | <a href="#">联系我们</a></p>
+                </div>
+                <p class="footer_las">沪ICP备14054173号 Copyright © 2014-2015 PP投行 All Rights Reserved</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

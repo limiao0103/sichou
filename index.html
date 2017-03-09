@@ -1,0 +1,400 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>私筹邦</title>
+<link rel="stylesheet"  href="css/style.css" type="text/css" />
+<script type="text/javascript" src="js/jquery.js"/></script>
+<!--banner图js-->
+<script type="text/javascript">
+function banner(){	
+	var bn_id = 0;
+	var bn_id2= 1;
+	var speed33=5000;
+	var qhjg = 1;
+    var MyMar33;
+	$("#banner .d1").hide();
+	$("#banner .d1").eq(0).fadeIn("slow");
+	if($("#banner .d1").length>1)
+	{
+		$("#banner_id li").eq(0).addClass("nuw");
+		function Marquee33(){
+			bn_id2 = bn_id+1;
+			if(bn_id2>$("#banner .d1").length-1)
+			{
+				bn_id2 = 0;
+			}
+			$("#banner .d1").eq(bn_id).css("z-index","2");
+			$("#banner .d1").eq(bn_id2).css("z-index","1");
+			$("#banner .d1").eq(bn_id2).show();
+			$("#banner .d1").eq(bn_id).fadeOut("slow");
+			$("#banner_id li").removeClass("nuw");
+			$("#banner_id li").eq(bn_id2).addClass("nuw");
+			bn_id=bn_id2;
+		};
+	
+		MyMar33=setInterval(Marquee33,speed33);
+		
+		$("#banner_id li").click(function(){
+			var bn_id3 = $("#banner_id li").index(this);
+			if(bn_id3!=bn_id&&qhjg==1)
+			{
+				qhjg = 0;
+				$("#banner .d1").eq(bn_id).css("z-index","2");
+				$("#banner .d1").eq(bn_id3).css("z-index","1");
+				$("#banner .d1").eq(bn_id3).show();
+				$("#banner .d1").eq(bn_id).fadeOut("slow",function(){qhjg = 1;});
+				$("#banner_id li").removeClass("nuw");
+				$("#banner_id li").eq(bn_id3).addClass("nuw");
+				bn_id=bn_id3;
+			}
+		})
+		$("#banner_id").hover(
+			function(){
+				clearInterval(MyMar33);
+			}
+			,
+			function(){
+				MyMar33=setInterval(Marquee33,speed33);
+			}
+		)	
+	}
+	else
+	{
+		$("#banner_id").hide();
+	}
+}
+</script>
+
+<!--选项卡切换js-->
+<script type="text/javascript" src="js/jquery.tabso_yeso.js"></script>
+<script type="text/javascript">
+$(document).ready(function($){
+	//默认选项卡切换
+	$("#normaltab").tabso({
+		cntSelect:"#normalcon",
+		tabEvent:"mouseover",
+		tabStyle:"normal"
+	});
+	
+});
+</script>
+
+<!--倒计时js-->
+<script type="text/javascript">
+
+var intDiff = parseInt(60);//倒计时总秒数量
+
+function timer(intDiff){
+	window.setInterval(function(){
+	var day=0,
+		hour=0,
+		minute=0,
+		second=0;//时间默认值		
+	if(intDiff > 0){
+		day = Math.floor(intDiff / (60 * 60 * 24));
+		hour = Math.floor(intDiff / (60 * 60)) - (day * 24);
+		minute = Math.floor(intDiff / 60) - (day * 24 * 60) - (hour * 60);
+		second = Math.floor(intDiff) - (day * 24 * 60 * 60) - (hour * 60 * 60) - (minute * 60);
+	}
+	if (minute <= 9) minute = '0' + minute;
+	if (second <= 9) second = '0' + second;
+	$('.day_show').html(day+"");
+	$('.hour_show').html('<s id="h"></s>'+hour+'');
+	$('.minute_show').html('<s></s>'+minute+'');
+	$('.second_show').html('<s></s>'+second+'');
+	intDiff--;
+	}, 1000);
+} 
+
+$(function(){
+	timer(intDiff);
+});	
+</script>
+
+
+<!--导航js-->
+<script type="text/javascript">
+$(document).ready(function($){
+	$('.nav_l li').mouseover(function(){
+		 $(this).addClass('current');
+		 $(this).siblings('.nav_l li').removeClass('current');
+		 $(this).children('.nav_box').show();
+		 $(this).siblings('.nav_l li').children('.nav_box').hide();
+		});
+    $('.nav_l li .nav_box li').mouseover(function(){
+		 $(this).addClass('curr');
+		 $(this).siblings('.nav_l li .nav_box li').removeClass('curr')
+		 $(this).removeClass('current');
+		})
+	
+});
+</script>
+
+</head>
+
+<body>
+	<div class="wrap">
+        <!--top开始-->
+        <div class="top">
+        	<div class="top_left">
+            	<ul>
+                	<li><img src="images/logo.png" width="181" height="58" /></li>
+                    <li class="line"><img src="images/logo_r.png" /></li>
+                    <li class="letter">财富纽带&nbsp; &nbsp;丝绸之路</li>
+                </ul>
+            </div>
+            <div class="top_right">
+            	<dl>
+                	<dt><a href="#"><img src="images/xinlang.png" /></a></dt>
+                    <dd>新浪微博</dd>
+                </dl>
+                <dl>
+                	<dt class="weixin"><a href="#"><img src="images/weixin.png" /></a></dt>
+                    <dd>微信公众号</dd>
+                </dl>
+            </div>
+        </div>
+        <!--top结束-->
+        <!--nav开始-->
+        <div class="nav">
+            <div class="nav_all">
+                <div class="nav_l">
+                    <ul>
+                        <li class="current">
+                            <a href="index.html">首页</a>
+                        </li>
+                        <li><a href="information.html">资讯</a>
+                            <div class="nav_box">
+                                <ul>
+                                    <li class="curr"><a href="companyAnnounce.html">公司公告</a></li>
+                                    <li><a href="#">行业新闻</a></li>
+                                    <li><a href="#">活动专题</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="sc-project.html">私筹项目</a></li>
+                        <li><a href="join-condition.html">代理加盟</a>
+                            <div class="nav_box">
+                                <ul>
+                                    <li class="curr"><a href="join-condition.html">加盟条件</a></li>
+                                    <li><a href="join-apply.html">加盟申请</a></li>
+                                    <li><a href="join-log%20in.html">代理商登录</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="new-index.html">新手索引</a></li>
+                    </ul>
+                </div>
+                <div class="nav_r">
+                    <ul>
+                        <li>
+                            <a href="sign-in.html"><input class="zhuce" type="button" value="注册" /></a>
+                        </li>
+                        <li>
+                            <a href="log-in.html"><input class="denglu" type="button" value="登录" /></a>
+                        </li>
+                        <li>
+                            <p><img src="images/user_icon.png" />用户中心</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--nav结束-->
+        <!--banner开始-->
+    	<div class="banner" id="banner" >
+            <a href="#" class="d1" style="background:url(images/index/banner.jpg) center no-repeat;"></a>
+            <a href="#" class="d1" style="background:url(images/index/banner.jpg) center no-repeat;"></a>
+            <a href="#" class="d1" style="background:url(images/index/banner.jpg) center no-repeat;"></a>
+            <a href="#" class="d1" style="background:url(images/index/banner.jpg) center no-repeat;"></a>
+            <a href="#" class="d1" style="background:url(images/index/banner.jpg) center no-repeat;"></a>
+            <div class="d2" id="banner_id">
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+        <script type="text/javascript">banner()</script>
+        <!--banner结束-->
+        <div class="adver">
+        	<dl>
+            	<dt><img src="images/index/pic1.png" /></dt>
+                <dd>甄选<strong>顶级</strong>产品</dd>
+            </dl>
+            <dl>
+            	<dt><img src="images/index/pic2.png" /></dt>
+                <dd>全程<strong>5星</strong>服务</dd>
+            </dl>
+            <dl class="last">
+            	<dt><img src="images/index/pic3.png" /></dt>
+                <dd>资金<strong>安全</strong>托管</dd>
+            </dl>
+        </div>
+        <div class="tab_select">	
+            <ul class="tabbtn" id="normaltab">
+                <li class="current tab_btn"><a href="#">公司公告</a></li>
+                <li class="tab_btn2"><a href="#">行业新闻</a></li>
+                <li class="tab_btn3"><a href="#">活动中心</a></li>
+            </ul><!--tabbtn end-->
+            <div class="tabcon" id="normalcon">
+                <div class="sublist">
+                    <p class="more"><span><a href="#">更多>></a></span></p>
+                    <ul class="ul_l">
+                        <li><a href="#" target="_blank"><p>北京市第18届艺术节展演荣获三个金奖...</p><span>2015-5-22</span></a></li>
+                        <li><a href="#" target="_blank"><p>海淀区艺术节群舞比赛一等奖...</p><span>2015-5-22</span></a></li>
+                        <li><a href="#" target="_blank"><p>机器人世锦赛荣获全球第五名...</p><span>2015-5-22</span></a></li>
+                        <li><a href="#" target="_blank"><p>中国第九届优秀管乐团队展演金奖...</p><span>2015-5-22</span></a></li>
+                        <li><a href="#" target="_blank"><p>2015年初中入学特长生招收方案...</p><span>2015-5-22</span></a></li>
+                        <li><a href="#" target="_blank"><p>2015年初中入学特长生招收方案...</p><span>2015-5-22</span></a></li>
+                    </ul>
+                    <div class="tab_line"><img src="images/index/tab_select_line.png" /></div>
+                    <ul class="ul_l">
+                        <li><a href="#" target="_blank"><p>北京市第18届艺术节展演荣获三个金奖...</p><span>2015-5-22</span></a></li>
+                        <li><a href="#" target="_blank"><p>海淀区艺术节群舞比赛一等奖...</p><span>2015-5-22</span></a></li>
+                        <li><a href="#" target="_blank"><p>机器人世锦赛荣获全球第五名...</p><span>2015-5-22</span></a></li>
+                        <li><a href="#" target="_blank"><p>中国第九届优秀管乐团队展演金奖...</p><span>2015-5-22</span></a></li>
+                        <li><a href="#" target="_blank"><p>2015年初中入学特长生招收方案...</p><span>2015-5-22</span></a></li>
+                        <li><a href="#" target="_blank"><p>2015年初中入学特长生招收方案...</p><span>2015-5-22</span></a></li>
+                    </ul>
+                </div><!--tabcon end-->
+                <div class="sublist">
+                    <p class="more"><span><a href="#">更多>></a></span></p>
+                    <ul class="ul_l">
+                        <li><a href="#" target="_blank"><p>2北京市第18届艺术节展演荣获三个金奖...</p><span>2015-5-22</span></a></li>
+                        <li><a href="#" target="_blank"><p>2海淀区艺术节群舞比赛一等奖...</p><span>2015-5-22</span></a></li>
+                        <li><a href="#" target="_blank"><p>2机器人世锦赛荣获全球第五名...</p><span>2015-5-22</span></a></li>
+                        <li><a href="#" target="_blank"><p>2中国第九届优秀管乐团队展演金奖...</p><span>2015-5-22</span></a></li>
+                        <li><a href="#" target="_blank"><p>2015年初中入学特长生招收方案...</p><span>2015-5-22</span></a></li>
+                        <li><a href="#" target="_blank"><p>2015年初中入学特长生招收方案...</p><span>2015-5-22</span></a></li>
+                    </ul>
+                    <div class="tab_line"><img src="images/index/tab_select_line.png" /></div>
+                    <ul class="ul_l">
+                        <li><a href="#" target="_blank"><p>北京市第18届艺术节展演荣获三个金奖...</p><span>2015-5-22</span></a></li>
+                        <li><a href="#" target="_blank"><p>海淀区艺术节群舞比赛一等奖...</p><span>2015-5-22</span></a></li>
+                        <li><a href="#" target="_blank"><p>机器人世锦赛荣获全球第五名...</p><span>2015-5-22</span></a></li>
+                        <li><a href="#" target="_blank"><p>中国第九届优秀管乐团队展演金奖...</p><span>2015-5-22</span></a></li>
+                        <li><a href="#" target="_blank"><p>2015年初中入学特长生招收方案...</p><span>2015-5-22</span></a></li>
+                        <li><a href="#" target="_blank"><p>2015年初中入学特长生招收方案...</p><span>2015-5-22</span></a></li>
+                    </ul>
+                </div><!--tabcon end-->
+                <div class="sublist">
+                    <p class="more"><span><a href="#">更多>></a></span></p>
+                    <ul class="ul_l">
+                        <li><a href="#" target="_blank"><p>3北京市第18届艺术节展演荣获三个金奖...</p><span>2015-5-22</span></a></li>
+                        <li><a href="#" target="_blank"><p>3海淀区艺术节群舞比赛一等奖...</p><span>2015-5-22</span></a></li>
+                        <li><a href="#" target="_blank"><p>3机器人世锦赛荣获全球第五名...</p><span>2015-5-22</span></a></li>
+                        <li><a href="#" target="_blank"><p>3中国第九届优秀管乐团队展演金奖...</p><span>2015-5-22</span></a></li>
+                        <li><a href="#" target="_blank"><p>2015年初中入学特长生招收方案...</p><span>2015-5-22</span></a></li>
+                        <li><a href="#" target="_blank"><p>2015年初中入学特长生招收方案...</p><span>2015-5-22</span></a></li>
+                    </ul>
+                    <div class="tab_line"><img src="images/index/tab_select_line.png" /></div>
+                    <ul class="ul_l">
+                        <li><a href="#" target="_blank"><p>北京市第18届艺术节展演荣获三个金奖...</p><span>2015-5-22</span></a></li>
+                        <li><a href="#" target="_blank"><p>海淀区艺术节群舞比赛一等奖...</p><span>2015-5-22</span></a></li>
+                        <li><a href="#" target="_blank"><p>机器人世锦赛荣获全球第五名...</p><span>2015-5-22</span></a></li>
+                        <li><a href="#" target="_blank"><p>中国第九届优秀管乐团队展演金奖...</p><span>2015-5-22</span></a></li>
+                        <li><a href="#" target="_blank"><p>2015年初中入学特长生招收方案...</p><span>2015-5-22</span></a></li>
+                        <li><a href="#" target="_blank"><p>2015年初中入学特长生招收方案...</p><span>2015-5-22</span></a></li>
+                    </ul>
+                </div><!--tabcon end-->
+            </div><!--tabcon end-->
+            
+        </div><!--tabbox end-->
+        
+        <div class="index_title">
+        	<h1>推荐项目</h1>
+            <p>顶级资产管理人，聚合财富管理力量<a href="#"><input type="button" value="更多>" /></a></p>
+        </div>
+        
+        <div class="data">
+        	<div class="data_left"><img src="images/index/data_pic.jpg" /></div>
+            <div class="data_right">
+            	<div class="data_right_l">
+                	<h1>大家欧朋发投资资金</h1>
+                    <p><strong>推荐星级</strong><span><img src="images/index/star.png" /><img src="images/index/star.png" /><img src="images/index/star.png" /><img src="images/index/star.png" /><img src="images/index/star.png" /></span></p>
+                    <p><strong>起投金额</strong><span>5万元</span></p>
+                </div>
+                <div class="data_right_r">
+                	<p><input type="button" value="我要投资" /></p>
+                    <div class="lest_time">
+                    	<p>剩余时间</p>
+                        <div class="time-item">
+                            <strong class="day_show">0</strong><span>天</span>
+                            <strong class="hour_show">0</strong><span>时</span>
+                            <strong class="minute_show">00</strong><span>分</span>
+                            <strong class="second_show">00</strong><span>秒</span>
+                        </div><!--倒计时模块-->
+                    </div>
+                </div>
+            </div>
+            <div class="data_detail">
+                 <p><img src="images/index/data1.jpg" /><img src="images/index/data2.jpg" /></p>
+                 <h1>项目分析：前景广阔 安全透明</h1>
+                 <p>自一月份正式运作以来，截至4月17日共分红3次，为客户锁定收益43.25%，自一月份正
+式运作以来，截至4月17日共分红3次，为客户锁定收益43.25%....</p>
+            </div>
+        </div>
+        
+        <div class="data">
+        	<div class="data_left"><img src="images/index/data_pic2.jpg" /></div>
+            <div class="data_right">
+            	<div class="data_right_l">
+                	<h1>大家欧朋发投资资金</h1>
+                    <p><strong>推荐星级</strong><span><img src="images/index/star.png" /><img src="images/index/star.png" /><img src="images/index/star.png" /><img src="images/index/star.png" /><img src="images/index/star.png" /></span></p>
+                    <p><strong>起投金额</strong><span>5万元</span></p>
+                </div>
+                <div class="data_right_r">
+                	<p><input type="button" value="我要投资" /></p>
+                    <div class="lest_time">
+                    	<p>剩余时间</p>
+                        <div class="time-item">
+                            <strong class="day_show">0</strong><span>天</span>
+                            <strong class="hour_show">0</strong><span>时</span>
+                            <strong class="minute_show">00</strong><span>分</span>
+                            <strong class="second_show">00</strong><span>秒</span>
+                        </div><!--倒计时模块-->
+                    </div>
+                </div>
+            </div>
+            <div class="data_detail">
+                 <p><img src="images/index/data1.jpg" /><img src="images/index/data2.jpg" /></p>
+                 <h1>项目分析：前景广阔 安全透明</h1>
+                 <p>自一月份正式运作以来，截至4月17日共分红3次，为客户锁定收益43.25%，自一月份正
+式运作以来，截至4月17日共分红3次，为客户锁定收益43.25%....</p>
+            </div>
+        </div>
+        
+        <div class="coo">
+            <div class="index_title ccop">
+                <h1>合作机构</h1>
+                <p><a href="#">更多>></a></p>
+            </div>
+            <ul class="coop_ul">
+                <li><a href="#"><img src="images/index/coo_institution.jpg" /></a></li>
+                <li><a href="#"><img src="images/index/coo_institution.jpg" /></a></li>
+                <li><a href="#"><img src="images/index/coo_institution.jpg" /></a></li>
+                <li class="last"><a href="#"><img src="images/index/coo_institution.jpg" /></a></li>
+                <li><a href="#"><img src="images/index/coo_institution.jpg" /></a></li>
+                <li><a href="#"><img src="images/index/coo_institution.jpg" /></a></li>
+                <li><a href="#"><img src="images/index/coo_institution.jpg" /></a></li>
+                <li class="last"><a href="#"><img src="images/index/coo_institution.jpg" /></a></li>
+            </ul>
+        </div>
+        
+        <div class="footer">
+        	<div class="foot_all">
+                <div class="footer_top">
+                    <p class="footer_l"><img src="images/index/tele.png" />客服热线：400-800-965（工作时间 09:00-18:00）</p>
+                    <p class="footer_r"><a href="#">关于我们</a> | <a href="#">帮助中心</a> | <a href="#"> 代理加盟</a> | <a href="#">联系我们</a></p>
+                </div>
+                <p class="footer_las">沪ICP备14054173号 Copyright © 2014-2015 PP投行 All Rights Reserved</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

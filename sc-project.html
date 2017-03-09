@@ -1,0 +1,307 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>私筹邦-私筹项目</title>
+<link rel="stylesheet"  href="css/style.css" type="text/css" />
+<script type="text/javascript" src="js/jquery.js"/></script>
+<!--倒计时js-->
+<script type="text/javascript">
+
+var intDiff = parseInt(60);//倒计时总秒数量
+
+function timer(intDiff){
+	window.setInterval(function(){
+	var day=0,
+		hour=0,
+		minute=0,
+		second=0;//时间默认值		
+	if(intDiff > 0){
+		day = Math.floor(intDiff / (60 * 60 * 24));
+		hour = Math.floor(intDiff / (60 * 60)) - (day * 24);
+		minute = Math.floor(intDiff / 60) - (day * 24 * 60) - (hour * 60);
+		second = Math.floor(intDiff) - (day * 24 * 60 * 60) - (hour * 60 * 60) - (minute * 60);
+	}
+	if (minute <= 9) minute = '0' + minute;
+	if (second <= 9) second = '0' + second;
+	$('.day_show').html(day+"");
+	$('.hour_show').html('<s id="h"></s>'+hour+'');
+	$('.minute_show').html('<s></s>'+minute+'');
+	$('.second_show').html('<s></s>'+second+'');
+	intDiff--;
+	}, 1000);
+} 
+
+$(function(){
+	timer(intDiff);
+});	
+</script>
+
+
+<!--导航js-->
+<script type="text/javascript">
+$(document).ready(function($){
+	$('.nav_l li').mouseover(function(){
+		 $(this).addClass('current');
+		 $(this).siblings('.nav_l li').removeClass('current');
+		 $(this).children('.nav_box').show();
+		 $(this).siblings('.nav_l li').children('.nav_box').hide();
+		});
+    $('.nav_l li .nav_box li').mouseover(function(){
+		 $(this).addClass('curr');
+		 $(this).siblings('.nav_l li .nav_box li').removeClass('curr')
+		 $(this).removeClass('current');
+		})
+	
+});
+</script>
+
+</head>
+
+<body>
+	<div class="wrap">
+        <!--top开始-->
+        <div class="top">
+        	<div class="top_left">
+            	<ul>
+                	<li><img src="images/logo.png" width="181" height="58" /></li>
+                    <li class="line"><img src="images/logo_r.png" /></li>
+                    <li class="letter">财富纽带&nbsp; &nbsp;丝绸之路</li>
+                </ul>
+            </div>
+            <div class="top_right">
+            	<dl>
+                	<dt><a href="#"><img src="images/xinlang.png" /></a></dt>
+                    <dd>新浪微博</dd>
+                </dl>
+                <dl>
+                	<dt class="weixin"><a href="#"><img src="images/weixin.png" /></a></dt>
+                    <dd>微信公众号</dd>
+                </dl>
+            </div>
+        </div>
+        <!--top结束-->
+        <!--nav开始-->
+        <div class="nav">
+            <div class="nav_all">
+                <div class="nav_l">
+                    <ul>
+                        <li class="current">
+                            <a href="index.html">首页</a>
+                        </li>
+                        <li><a href="information.html">资讯</a>
+                            <div class="nav_box">
+                                <ul>
+                                    <li class="curr"><a href="companyAnnounce.html">公司公告</a></li>
+                                    <li><a href="#">行业新闻</a></li>
+                                    <li><a href="#">活动专题</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="sc-project.html">私筹项目</a></li>
+                        <li><a href="join-condition.html">代理加盟</a>
+                            <div class="nav_box">
+                                <ul>
+                                    <li class="curr"><a href="join-condition.html">加盟条件</a></li>
+                                    <li><a href="join-apply.html">加盟申请</a></li>
+                                    <li><a href="join-log%20in.html">代理商登录</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="new-index.html">新手索引</a></li>
+                    </ul>
+                </div>
+                <div class="nav_r">
+                    <ul>
+                        <li>
+                            <a href="sign-in.html"><input class="zhuce" type="button" value="注册" /></a>
+                        </li>
+                        <li>
+                            <a href="log-in.html"><input class="denglu" type="button" value="登录" /></a>
+                        </li>
+                        <li>
+                            <p><img src="images/user_icon.png" />用户中心</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--nav结束-->
+        <div class="sichou_top">
+            <p><a href="#">全  部</a> | <a class="current" href="#">认购项目</a> | <a href="#"> 申购项目</a> | <a href="#">已成项目</a> </p>
+            <div class="search"><input type="text" value="请输入关键字搜索"  onfocus="if(this.value=='请输入关键字搜索'){this.value='';}"  onblur="if(this.value==''){this.value='请输入关键字搜索';}"  /><span><a href="#"><img src="images/sichou/swarch_bg2.png" width="57" height="45" /></a></span></div>
+        </div> 
+        
+        <div class="data">
+        	<div class="data_left"><img src="images/index/data_pic.jpg" /></div>
+            <div class="data_right">
+            	<div class="data_right_l">
+                	<h1>大家欧朋发投资资金</h1>
+                    <p><strong>推荐星级</strong><span><img src="images/index/star.png" /><img src="images/index/star.png" /><img src="images/index/star.png" /><img src="images/index/star.png" /><img src="images/index/star.png" /></span></p>
+                    <p><strong>起投金额</strong><span>5万元</span></p>
+                </div>
+                <div class="data_right_r">
+                	<p><input type="button" value="我要投资" /></p>
+                    <div class="lest_time">
+                    	<p>剩余时间</p>
+                        <div class="time-item">
+                            <strong class="day_show">0</strong><span>天</span>
+                            <strong class="hour_show">0</strong><span>时</span>
+                            <strong class="minute_show">00</strong><span>分</span>
+                            <strong class="second_show">00</strong><span>秒</span>
+                        </div><!--倒计时模块-->
+                    </div>
+                </div>
+            </div>
+            <div class="data_detail">
+                 <p><img src="images/index/data1.jpg" /><img src="images/index/data2.jpg" /></p>
+                 <h1>项目分析：前景广阔 安全透明</h1>
+                 <p>自一月份正式运作以来，截至4月17日共分红3次，为客户锁定收益43.25%，自一月份正
+式运作以来，截至4月17日共分红3次，为客户锁定收益43.25%....</p>
+            </div>
+        </div>
+        
+        <div class="data">
+        	<div class="data_left"><img src="images/index/data_pic2.jpg" /></div>
+            <div class="data_right">
+            	<div class="data_right_l">
+                	<h1>大家欧朋发投资资金</h1>
+                    <p><strong>推荐星级</strong><span><img src="images/index/star.png" /><img src="images/index/star.png" /><img src="images/index/star.png" /><img src="images/index/star.png" /><img src="images/index/star.png" /></span></p>
+                    <p><strong>起投金额</strong><span>5万元</span></p>
+                </div>
+                <div class="data_right_r">
+                	<p><input type="button" value="我要投资" /></p>
+                    <div class="lest_time">
+                    	<p>剩余时间</p>
+                        <div class="time-item">
+                            <strong class="day_show">0</strong><span>天</span>
+                            <strong class="hour_show">0</strong><span>时</span>
+                            <strong class="minute_show">00</strong><span>分</span>
+                            <strong class="second_show">00</strong><span>秒</span>
+                        </div><!--倒计时模块-->
+                    </div>
+                </div>
+            </div>
+            <div class="data_detail">
+                 <p><img src="images/index/data1.jpg" /><img src="images/index/data2.jpg" /></p>
+                 <h1>项目分析：前景广阔 安全透明</h1>
+                 <p>自一月份正式运作以来，截至4月17日共分红3次，为客户锁定收益43.25%，自一月份正
+式运作以来，截至4月17日共分红3次，为客户锁定收益43.25%....</p>
+            </div>
+        </div>
+        
+        <div class="data">
+        	<div class="data_left"><img src="images/index/data_pic.jpg" /></div>
+            <div class="data_right">
+            	<div class="data_right_l">
+                	<h1>大家欧朋发投资资金</h1>
+                    <p><strong>推荐星级</strong><span><img src="images/index/star.png" /><img src="images/index/star.png" /><img src="images/index/star.png" /><img src="images/index/star.png" /><img src="images/index/star.png" /></span></p>
+                    <p><strong>起投金额</strong><span>5万元</span></p>
+                </div>
+                <div class="data_right_r">
+                	<p><input type="button" value="我要投资" /></p>
+                    <div class="lest_time">
+                    	<p>剩余时间</p>
+                        <div class="time-item">
+                            <strong class="day_show">0</strong><span>天</span>
+                            <strong class="hour_show">0</strong><span>时</span>
+                            <strong class="minute_show">00</strong><span>分</span>
+                            <strong class="second_show">00</strong><span>秒</span>
+                        </div><!--倒计时模块-->
+                    </div>
+                </div>
+            </div>
+            <div class="data_detail">
+                 <p><img src="images/index/data1.jpg" /><img src="images/index/data2.jpg" /></p>
+                 <h1>项目分析：前景广阔 安全透明</h1>
+                 <p>自一月份正式运作以来，截至4月17日共分红3次，为客户锁定收益43.25%，自一月份正
+式运作以来，截至4月17日共分红3次，为客户锁定收益43.25%....</p>
+            </div>
+        </div>
+        
+        <div class="data">
+        	<div class="data_left"><img src="images/index/data_pic2.jpg" /></div>
+            <div class="data_right">
+            	<div class="data_right_l">
+                	<h1>大家欧朋发投资资金</h1>
+                    <p><strong>推荐星级</strong><span><img src="images/index/star.png" /><img src="images/index/star.png" /><img src="images/index/star.png" /><img src="images/index/star.png" /><img src="images/index/star.png" /></span></p>
+                    <p><strong>起投金额</strong><span>5万元</span></p>
+                </div>
+                <div class="data_right_r">
+                	<p><input type="button" value="我要投资" /></p>
+                    <div class="lest_time">
+                    	<p>剩余时间</p>
+                        <div class="time-item">
+                            <strong class="day_show">0</strong><span>天</span>
+                            <strong class="hour_show">0</strong><span>时</span>
+                            <strong class="minute_show">00</strong><span>分</span>
+                            <strong class="second_show">00</strong><span>秒</span>
+                        </div><!--倒计时模块-->
+                    </div>
+                </div>
+            </div>
+            <div class="data_detail">
+                 <p><img src="images/index/data1.jpg" /><img src="images/index/data2.jpg" /></p>
+                 <h1>项目分析：前景广阔 安全透明</h1>
+                 <p>自一月份正式运作以来，截至4月17日共分红3次，为客户锁定收益43.25%，自一月份正
+式运作以来，截至4月17日共分红3次，为客户锁定收益43.25%....</p>
+            </div>
+        </div>
+        
+        <div class="data">
+        	<div class="data_left"><img src="images/index/data_pic.jpg" /></div>
+            <div class="data_right">
+            	<div class="data_right_l">
+                	<h1>大家欧朋发投资资金</h1>
+                    <p><strong>推荐星级</strong><span><img src="images/index/star.png" /><img src="images/index/star.png" /><img src="images/index/star.png" /><img src="images/index/star.png" /><img src="images/index/star.png" /></span></p>
+                    <p><strong>起投金额</strong><span>5万元</span></p>
+                </div>
+                <div class="data_right_r">
+                	<p><input type="button" value="我要投资" /></p>
+                    <div class="lest_time">
+                    	<p>剩余时间</p>
+                        <div class="time-item">
+                            <strong class="day_show">0</strong><span>天</span>
+                            <strong class="hour_show">0</strong><span>时</span>
+                            <strong class="minute_show">00</strong><span>分</span>
+                            <strong class="second_show">00</strong><span>秒</span>
+                        </div><!--倒计时模块-->
+                    </div>
+                </div>
+            </div>
+            <div class="data_detail">
+                 <p><img src="images/index/data1.jpg" /><img src="images/index/data2.jpg" /></p>
+                 <h1>项目分析：前景广阔 安全透明</h1>
+                 <p>自一月份正式运作以来，截至4月17日共分红3次，为客户锁定收益43.25%，自一月份正
+式运作以来，截至4月17日共分红3次，为客户锁定收益43.25%....</p>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <div class="page sichou_page">
+            <ul>
+               <li class="pre_arrow"><a href=""#><</a></li>
+               <li><a href=""#>1</a></li>
+               <li><a href=""#>2</a></li>
+               <li><a href=""#>3</a></li>
+               <li><a href=""#>4</a></li>
+               <li><a href=""#>5</a></li>
+               <li><a href=""#>6</a></li>
+               <li><a href=""#>7</a></li>
+               <li><a href=""#>8</a></li>
+               <li><a href=""#>9</a></li>
+               <li class="next_arrow"><a href=""#>></a></li>
+            </ul>
+        </div>    
+        
+        <div class="footer">
+        	<div class="foot_all">
+                <div class="footer_top">
+                    <p class="footer_l"><img src="images/index/tele.png" />客服热线：400-800-965（工作时间 09:00-18:00）</p>
+                    <p class="footer_r"><a href="#">关于我们</a> | <a href="#">帮助中心</a> | <a href="#"> 代理加盟</a> | <a href="#">联系我们</a></p>
+                </div>
+                <p class="footer_las">沪ICP备14054173号 Copyright © 2014-2015 PP投行 All Rights Reserved</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
